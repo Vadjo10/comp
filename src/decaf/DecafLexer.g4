@@ -25,8 +25,17 @@ WS_ : (' ' | '\n' ) -> skip;
 SL_COMMENT : '//' (~'\n')* '\n' -> skip;
 
 CHAR : '\'' (ESC|'a'..'z'|'A'..'Z'|'0'..'9'|SIMBOLOS) '\'';
-STRING : '"' (ESC|~'"')* '"';
+STRING : '"' (ALFABETO|NUMEROS|SIMBOLOS)* '"';
 
 fragment
 ESC :  '\\'('n'|'t'|'"'|'\\');
-SIMBOLOS: ('!'|'#'|'$'|'@'|'&');
+
+fragment
+SIMBOLOS: (' '|'!'|'"'|'#'|'$'|'%'|'&'|'\\\''|'('|')'|'*'|'+'|','|'-'|'.'|'/'|':'|';'|'<'|'='|'>'|'?'|'@'|'['|']'|'^'|'_'|'´'|'`'|'{'|'|'|'}'|'~'|'\t'|'\\'|'\"');
+
+fragment
+NUMEROS: ('0'..'9');
+
+fragment
+ALFABETO  : ('a'..'z' | 'A'..'Z');
+
