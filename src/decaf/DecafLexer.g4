@@ -13,22 +13,50 @@ tokens
 {
   TK_class
 }
+PROGRAM: 'Program';
+BREAK: 'break';
+CALLOUT: 'callout';
+CLASS: 'class';
+CONTINUE: 'continue';
+RETURN: 'return';
+VOID: 'void';
+
+IF:'if';
+ELSE:'else';
+FOR:'for';
+INT: 'int';
+BOOLEAN: 'boolean';
+BOOLEAN01: 'true'|'false';
 
 LCURLY : '{';
 RCURLY : '}';
+LPAR : '(';
+RPAR: ')';
+LCOL: '[';
+RCOL: ']'; 
 
-IF : 'if';
-ELSE : 'else';
-BOOLEAN : 'boolean';
-BREAK : 'break';
-CALLOUT : 'callout';
-CLASS : 'class';
-CONTINUE : 'continue';
-FOR : 'for';
-INT : 'int';
-RETURN : 'return';
-VOID : 'void';
-BOOLEAN01: 'false' | 'true';
+DOISPONTOS:':';
+VIRGULA: ',';
+PVIRGULA:';';
+
+VEZES:'*';
+DIV:'/';
+MENOS:'-';
+MAIS:'+';
+RESTO: '%';
+EXCLAMACAO:'!';
+E:'&&';
+OU:'||';
+
+IGUAL:'==';
+DIFERENTEDE:'!=';
+MAIOR:'>';
+MENOR'<';
+MAIORIGUAL:'>=';
+MENORIGUAL:'<=';
+MAISIGUAL:'+=';
+MENOSIGUAL:'-=';
+ATRIB:'=';
 
 
 ID  :
