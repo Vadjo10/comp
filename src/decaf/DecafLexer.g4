@@ -13,10 +13,12 @@ tokens
 {
   TK_class
 }
-PROGRAM: 'Program';
+
+
+CLASS: 'class';
+PROGRAM:'Program';
 BREAK: 'break';
 CALLOUT: 'callout';
-CLASS: 'class';
 CONTINUE: 'continue';
 RETURN: 'return';
 VOID: 'void';
@@ -49,14 +51,14 @@ E:'&&';
 OU:'||';
 
 IGUAL:'==';
-DIFERENTEDE:'!=';
+DIFERENTE:'!=';
 MAIOR:'>';
-MENOR'<';
+MENOR:'<';
 MAIORIGUAL:'>=';
 MENORIGUAL:'<=';
 MAISIGUAL:'+=';
 MENOSIGUAL:'-=';
-ATRIB:'=';
+ATRIBUI:'=';
 
 
 ID  :
@@ -70,7 +72,7 @@ CHAR : '\'' (ESC| ALFANUMERICO| IDCHAR) '\'';
 STRING : '"' (IDCSTR | ALFANUMERICO)+ '"';
 HEXADECIMAL : '0x'(NUMERO | ALFAHEX)+;
 OP : (OPERADORES|SIMBOLOS);
-INTLITERAL : NUMERO+~'x';
+INTLITERAL : NUMERO(NUMERO)*;
 
 fragment
 ESC :  '\\' ('n'| '"'| 't' | '\\');
