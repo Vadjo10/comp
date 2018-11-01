@@ -12,9 +12,9 @@ options
 
 program: CLASS PROGRAM LCURLY field_decl* method_decl* RCURLY EOF;
 
-field_decl:type id (VIRGULA type id)* PVIRGULA;
+field_decl:(type id_col | type id_col LCOL int_literal + RCOL( VIRGULA( type id_col LCOL int_literal RCOL))*) PVIRGULA;
 
-method_decl: (type | VOID) ID LPAR ( type ID(VIRGULA type ID)*)? RPAR block;
+method_decl: (type | VOID) ID LPAR ( type ID(VIRGULA type ID)*)* RPAR block;
 
 block: LCURLY var_decl* statement* RCURLY;
 
@@ -25,8 +25,8 @@ type: INT | BOOLEAN;
 statement: location assign_op expr PVIRGULA
 		| method_call PVIRGULA
 		| IF LPAR expr RPAR block ( ELSE block)?
-		| FOR id ATRIBUI expr VIRGULA expr block
-		| RETURN expr? PVIRGULA
+		| FOR id_col ATRIBUI expr VIRGULA expr block
+		| RETURN (expr)* PVIRGULA
 		| BREAK PVIRGULA
 		| CONTINUE PVIRGULA
 		| block ;
@@ -62,6 +62,10 @@ literal : int_literal | CHAR | BOOLEAN01;
 
 int_literal : INTLITERAL | HEXADECIMAL;
 
-id : ID | ID LCOL? int_literal+ RCOL?;
+id: ID;
+
+id_col : ID | ID LCOL? int_literal+ RCOL?;
+
 
 string_literal: STRING;
+
